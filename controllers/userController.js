@@ -8,7 +8,7 @@ module.exports = {
     },
 
     getSingleUser(req, res) {
-        User.findOne({ _id: req.params.postId })
+        User.findOne({ _id: req.params.userId })
         .select('-__v') // - means ignore to Mongo ("-" means do not select this)
         .populate('thoughts')
         .populate('friends')
@@ -25,4 +25,13 @@ module.exports = {
             .then((dbUserData) => res.json(dbUserData))
             .catch((err) => res.status(500).json(err));
     },
+
+    updateUser(req, res){
+        User.findByIdAndUpdate(
+            { _id: req.params.userId}, 
+			{$set: req.body }, 
+            { runValidators: true, new: true })
+        .then((dbUserData) => res.json(dbUserData))
+        .catch((err) => res.status(500).json(err));
+    }
 };
