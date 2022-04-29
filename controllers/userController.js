@@ -28,10 +28,22 @@ module.exports = {
 
     updateUser(req, res){
         User.findByIdAndUpdate(
-            { _id: req.params.userId}, 
-			{$set: req.body }, 
+            req.params.userId, 
+			req.body, 
             { runValidators: true, new: true })
         .then((dbUserData) => res.json(dbUserData))
         .catch((err) => res.status(500).json(err));
-    }
+    },
+
+    deleteUser(req, res){
+        User.findByIdAndDelete(
+            {_id: req.params.userId},
+            {new: true})
+            .then((dbUserData) => 
+            !dbUserData ? res.status(400).json({message: "No user found"}) : Thought.deleteMany({_id: {$in: dbUserData.thoughts}})
+            )
+            .then(() => res.json({message:"user and thoughts deleted"}))
+            .catch((err) => res.status(500).json(err));
+        
+        }
 };
