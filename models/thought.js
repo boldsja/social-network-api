@@ -2,7 +2,6 @@ const {Schema, model} = require ('mongoose');
 const router = require('../routes');
 const dateFormat = require("../utils/dateFormat");
 
-
 const ReactionSchema = new Schema(
     {
         reactionId:{
@@ -31,8 +30,6 @@ const ReactionSchema = new Schema(
         id: false
     }
 )
-
-
 
 const ThoughtSchema = new Schema(
     {
@@ -63,7 +60,6 @@ const ThoughtSchema = new Schema(
         id: false
     }
 )
-
 
 ThoughtSchema.virtual("reactionCount").get(function(){
     return this.reactions.length;

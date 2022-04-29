@@ -72,28 +72,10 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
     },
 
-    // deleteReaction({ params }, res) {
-    //     Thought.findOneAndUpdate(
-    //         { _id: params.thoughtId },
-    //         { $pull: { reactions: { reactionId: params.reactionId } } },
-    //         { new: true }
-    //     )
-    //         .then(dbThoughtData => {
-    //             if (!dbThoughtData) {
-    //                 res.status(404)({ message: "Not found" })
-    //                 return;
-    //             }
-    //             res.json(dbThoughtData)
-    //         }).catch(err => res.status(400).json(err));
-
-    // }
-
-
-
     deleteReaction(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
-            { $pull: { reactions: { reactionId: req.params.reactionId } } },
+            { $pull: { reactions: { reactionId: req.body.reactionId } } },
             { new: true }
         )
             .populate({ path: 'reactions', select: '-__v' })
@@ -105,17 +87,4 @@ module.exports = {
             .then(() => res.json({ message: 'Reaction deleted!' }))
             .catch((err) => res.status(500).json(err));
     },
-
-    // console.log("find reaction by id", req.params.reactionId)
-    // console.log("find thought by id", req.params.thoughtId)
-
-
-
-
-    // .then((dbThoughtData) =>{
-    //     !dbThoughtData ?
-    //     res.status(404).json({ message: 'No thought with that ID' })
-    //     : res.json(dbThoughtData)
-
 };
-
