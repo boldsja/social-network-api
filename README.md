@@ -14,6 +14,12 @@ This project runs the back end of a social network so that users can be created,
   * [Tests](#tests)
   * [Questions](#questions)
 
+## Walkthrough Video
+
+
+https://user-images.githubusercontent.com/100175351/166171079-1f75b10c-b69a-4f95-9509-601d2f26108b.mp4
+
+
 
 ## Installation
 Run npm install in the command line to install necessary packages.
