@@ -25,7 +25,7 @@ https://user-images.githubusercontent.com/100175351/166171079-1f75b10c-b69a-4f95
 Run npm install in the command line to install necessary packages.
 
 ## Usage
-Run nom start to run app and then test in insomnia.
+Run npm start to run app and then test in insomnia.
 
 ## Contributing
 Brian Gearty, Kelly Jefferies
