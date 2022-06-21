@@ -1,4 +1,3 @@
-
 ## Social-Network-API
 ![Github license](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -40,5 +39,4 @@ This app was written under the MIT license.
 ## Questions?
 Reach out by email: boldsja@gmail.com
 
-[Github](https://github.com/boldsja/) 
-
+[Github](https://github.com/boldsja/)
